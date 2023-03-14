@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState } from 'react'
 
-function App() {
+function App({devs, greeting}) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>React Devs for Hire</h1>
+      <p>{greeting}</p>
+      <div>
+        <div>
+          { devs.map(dev => {
+            return <Developer dev={dev} />
+          })
+        }
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+function Developer({dev}){
+  const [expanded, setExpanded] = useState(false)
+
+  return (
+    <>
+      <p>{dev.name}</p>
+      <button onClick={() => setExpanded(!expanded)}> Show more </button>
+      {
+        expanded && <p>{dev.expertise}</p>
+      }    
+    </>
+    )
+}
+
+export default App
