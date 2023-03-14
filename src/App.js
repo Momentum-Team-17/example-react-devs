@@ -23,13 +23,13 @@ function Developer({dev}){
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <>
+    <div style={{border: '2px solid purple', margin: '10px', padding: '4px'}}>
       <p>{dev.name}</p>
       <button onClick={() => setExpanded(!expanded)}> Show more </button>
       {
         expanded && <p>{dev.expertise}</p>
       }    
-    </>
+    </div>
     )
 }
 
