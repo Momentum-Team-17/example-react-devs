@@ -11,6 +11,6 @@ const devs = [
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App devs={devs} greeting="hHELOOOOOO" />
+    <App devs={devs} />
   </React.StrictMode>
 )
