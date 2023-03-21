@@ -6,14 +6,22 @@ import DevList from './components/DevList'
 import { useState } from 'react'
 
 function App() {
-  const [selectedDev, setSelectedDev] = useState('')
+  const [selectedDev, setSelectedDev] = useState(null)
 
   return (
     <div className="container">
-      <header className='mx-2'>
+      <header className="mx-2">
         <h1 className="is-size-1">React Devs for Hire</h1>
       </header>
-      { selectedDev ? <Developer devGithubName={selectedDev} /> : <DevList setSelectedDev={setSelectedDev} />}
+      {selectedDev ? (
+        <Developer
+          githubName={selectedDev.gitHub}
+          name={selectedDev.name}
+          expertise={selectedDev.expertise}
+        />
+      ) : (
+        <DevList setSelectedDev={setSelectedDev} />
+      )}
     </div>
   )
 }

@@ -13,7 +13,7 @@ export default function DevList({setSelectedDev}){
         {devs && devs.map((dev, index) => {
           return (
             <div
-              onClick={() => setSelectedDev(dev.gitHub)}
+              onClick={() => setSelectedDev(dev)}
               key={index}
               style={{border: '2px solid aquamarine', padding: '10px', margin: '20px'}}
               >
